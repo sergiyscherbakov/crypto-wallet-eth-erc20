@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Крипто-гаманець</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="connectWrapper active">
+    <button id="connectButton">Connect Metamask</button>
+    <button id="connectBTCButton">Connect BTC</button>
+</div>
+<div class="wallet-selector">
+    <button id="ethWalletButton" class="active">ETH</button>
+    <button id="erc20WalletButton">ERC20</button>
+    <button id="btcWalletButton">BTC</button>
+</div>
+<div class="wallet-container" id="ethWrapper">
+    <h2>Ethereum</h2>
+    <p>Balance: <span id="ethBalance">0</span> ETH </p>
+    <hr>
+    <p>Account: <span id="ethAccount"></span></p>
+    <hr>
+    <h3>Send</h3>
+    <div class="send-form">
+        <div class="input-fields">
+            <input type="text" id="ethSendTo" value="0xC6BdFA7e694db5621CdcB7242d1931FC586f6d1d" placeholder="Receiver" />
+            <input type="number" id="ethSendAmount" min="0" value="0.0001" placeholder="Amount" />
+        </div>
+        <button id="ethSendButton" class="send-button">Send</button>
+    </div>
+</div>
+
+<div class="wallet-container" id="erc20Wrapper" style="display: none;">
+    <h2 id="erc20TokenName">ERC20</h2> <!-- Додано id="erc20TokenName" -->
+    <p>Balance: <span id="erc20Balance">0</span> ERC20 </p>
+    <hr>
+    <p>Account: <span id="erc20Account"></span></p>
+    <hr>
+    <h3>Send</h3>
+    <div class="send-form">
+        <div class="input-fields">
+            <input type="text" id="erc20SendTo" value="0xC6BdFA7e694db5621CdcB7242d1931FC586f6d1d" placeholder="Receiver" />
+            <input type="number" id="erc20SendAmount" min="0" value="10" placeholder="Amount" />
+        </div>
+        <button id="erc20SendButton" class="send-button">Send</button>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<script src="eth.js"></script>
+<script src="erc20.js"></script>
+
+</body>
+</html>

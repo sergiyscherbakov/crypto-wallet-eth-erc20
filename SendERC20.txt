@@ -1,0 +1,18 @@
+const onSendERC20 = async () => {
+    const sendToValue: string = erc20SendToAddress.value;
+    const ERC20Contract = ethers.Contract(ERC20Address, ERC20_ABI, ethData.signer);
+    const decimals = await ERC20Contract.decimals();
+    const sendAmountValue = ethers.utils.parseUnits(erc20SendAmount.value, decimals);
+
+    try {
+        const tx = await ERC20Contract.transfer(sendToValue, sendAmountValue);
+        console.log("Transaction Hash:", tx.hash);
+        const result = await tx.wait();
+        console.log("Transaction Receipt:", result);
+        await prepareERC20Wrapper();
+        erc20SendToAddress.value = '';
+        erc20SendAmount.value = '';
+    } catch (e) {
+        console.error(e);
+    }
+}
